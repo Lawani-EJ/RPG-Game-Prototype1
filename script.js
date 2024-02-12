@@ -66,7 +66,8 @@ function fightDragon () {
 
 //created 3 empty functions 
 function buyHealth () {
-
+    gold -= 10,
+    health += 10;
 }
 
 function buyWeapon () {
