@@ -18,12 +18,23 @@ const goldText = document.querySelector("#goldText");
 const monsterStats = document.querySelector("#monsterStats");
 const monsterName = document.querySelector("#monsterName");
 const monsterHealthText = document.querySelector("#monsterHealth");
-const locations = [{
+const locations = [
+    {
     name: "town square", //added an object property name
-    "button text": ["Go to store", "Go to cave", "Fight dragon"] //added a button text object property with an empty string value
+    "button text": ["Go to store", "Go to cave", "Fight dragon"], //added a button text object property with an empty string value
     // then gave 3 string values
-}]; //Declared empty variable and added an empty object 
+    "button functions": [goStore, goCave, fightDragon], // created the button function property  and assigned it a value of an array containing three different functions
+    "text": "You are in the town square. You see a sign that says \"Store\"." //created the text  property and assigned it a value
+},
 
+    {
+    name: "store", //added an object property name
+    "button text": ["Buy 10 health (10 gold)","Buy weapon (30 gold)","Go to town square"], //added a button text object property with an empty string value
+    // then gave 3 string values
+    "button functions": [buyHealth, buyWeapon, goTown], // created the button function property  and assigned it a value of an array containing three different functions
+    "text": "You enter the store." //created the text  property and assigned it a value
+}
+]; //Declared empty variable and added an empty object 
 
 //moved the function above the go store function and added the content from the goStore Function
 function goTown () {
