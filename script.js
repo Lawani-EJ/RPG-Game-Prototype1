@@ -38,26 +38,14 @@ const locations = [
 
 //moved the function above the go store function and added the content from the goStore Function
 function goTown () {
-        const button1 = document.querySelector("#button1");
-    button1.innerText = "Go to store";  //updated button element
-    button1.onclick = goStore; //updated onclick property
-    button2.innerText = "Go to cave";  //updated button element
-    button2.onclick = goCave;//updated onclick property
-    button3.innerText = "Fight dragon"; //updated button element
-    button3.onclick = fightDragon;//updated onclick property
-    text.innerText = "You are in the town square. You see a sign that says \"Store\".";  // modified the display text
+update (locations[0])  //the update function will use the the data from the location that is used to it.
+//added the locations function as an argument
+//added a bracket notation
 }
 
 
 function goStore () {
-    const button1 = document.querySelector("#button1");
-    button1.innerText = "Buy 10 health (10 gold)";
-    button1.onclick = buyHealth;
-    button2.innerText = "Buy weapon (30 gold)";
-    button2.onclick = buyWeapon;
-    button3.innerText = "Go to town square";
-    button3.onclick = goTown;
-    text.innerText = "You enter the store";  // modified the display text
+update ()  //the update function will use the the data from the location that is used to it.
 }
 
 function goCave () {
@@ -83,6 +71,14 @@ button2.onclick = goCave;
 button3.onclick = fightDragon;
 
 //created another empty function
+//Copied function of the goTown function
 function update (location){
-
+     const button1 = document.querySelector("#button1");
+    button1.innerText = location["button text"][0];  //updated button element
+    button1.onclick = location["button functions"][0]; //updated onclick property
+    button2.innerText = location["button text"][1];  //updated button element
+    button2.onclick =location["button functions"][1];//updated onclick property
+    button3.innerText = location["button text"][2]; //updated button element
+    button3.onclick = location["button functions"][2];//updated onclick property
+    text.innerText = "You are in the town square. You see a sign that says \"Store\".";  // modified the display text
 }
