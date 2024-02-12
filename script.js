@@ -33,23 +33,31 @@ const locations = [
     // then gave 3 string values
     "button functions": [buyHealth, buyWeapon, goTown], // created the button function property  and assigned it a value of an array containing three different functions
     "text": "You enter the store." //created the text  property and assigned it a value
+},
+
+// Added 3rd object   to array of objects for new location
+{
+    name: "cave",
+    "button text": ["Fight slime","Fight fanged beast","Go to town square"],
+    "button functions": [fightSlime,fightBeast,goTown],
+    "text": "You enter the cave. You see some monsters."
 }
 ]; //Declared empty variable and added an empty object 
 
 //moved the function above the go store function and added the content from the goStore Function
 function goTown () {
-update (locations[0])  //the update function will use the the data from the location that is used to it.
+update (locations[0]);  //the update function will use the the data from the location that is used to it.
 //added the locations function as an argument
 //added a bracket notation
 }
 
 
 function goStore () {
-update ()  //the update function will use the the data from the location that is used to it.
+  update(locations[1]);  //the update function will use the the data from the location that is used to it.
 }
 
 function goCave () {
-    console.log("Going to cave.");
+    update(locations[2]);
 }
 
 function fightDragon () {
@@ -65,6 +73,13 @@ function buyWeapon () {
     
 }
 
+function fightSlime(){  // These 2 functions will be used in my cave object
+
+}
+
+function fightBeast(){
+
+}
 //initialize buttons
 button1.onclick = goStore;
 button2.onclick = goCave;
@@ -80,5 +95,5 @@ function update (location){
     button2.onclick =location["button functions"][1];//updated onclick property
     button3.innerText = location["button text"][2]; //updated button element
     button3.onclick = location["button functions"][2];//updated onclick property
-    text.innerText = "You are in the town square. You see a sign that says \"Store\".";  // modified the display text
+      text.innerText = location.text;  // modified the display text by using dot notation
 }
