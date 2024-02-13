@@ -100,13 +100,28 @@ text.innerText = "You do not have enough gold to buy health.";
 }
 
 function buyWeapon() {
+    if (currentWeapon < weapons.length - 1){
+
   if (gold >= 30) {
     gold -= 30;
     currentWeapon++;
     goldText.innerText = gold;
     let newWeapon = weapons[currentWeapon].name;
     text.innerText = "You now have a " + newWeapon + ".";
+    inventory.push(newWeapon);
+    text.innerText += " In your inventory you have: " + inventory;
   }
+
+  else{
+    text.innerText = "You do not have enough gold to buy a weapon.";
+  }
+
+     }
+     
+  else{
+    text.innerText = "You already have the most powerful weapon!"
+  }
+
 }
 
 function fightSlime(){  // These 2 functions will be used in my cave object
