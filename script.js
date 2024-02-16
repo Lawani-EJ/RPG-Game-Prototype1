@@ -39,6 +39,13 @@ const weapons = [
         power: "100",
     }
 ];
+
+const monsters = [
+  {name: "Slime", level:2, health:15},
+  {name: "Fanged Beast", level:8, health:60},
+  {name: "Dragon", level:20, health:300}
+];
+
 const locations = [
     {
     name: "town square", //added an object property name
@@ -83,6 +90,10 @@ function goCave () {
 
 function fightDragon () {
     console.log("Fighting dragon.");
+}
+
+function goFight () {
+
 }
 
 //created 3 empty functions 
@@ -131,6 +142,11 @@ goldText.innerText = gold;
 let currentWeapon
 currentWeapon = inventory.shift();
     text.innerText = "You sold a " + currentWeapon + ".";
+    text.innerText += " In your inventory you have: " + inventory;
+  }
+  else {
+    inventory < 1;
+    text.innerText = "Don't sell your only weapon!";
   }
 }
 
