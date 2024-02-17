@@ -69,6 +69,13 @@ const locations = [
     "button text": ["Fight slime","Fight fanged beast","Go to town square"],
     "button functions": [fightSlime,fightBeast,goTown],
     "text": "You enter the cave. You see some monsters."
+},
+
+{
+  name : "fight",
+  "button text": ["Attack", "Dodge", "Run"],
+  "button functions": [attack, dodge, goTown],
+  "text": "You are fighting a monster."
 }
 ]; //Declared empty variable and added an empty object 
 
@@ -88,12 +95,16 @@ function goCave () {
     update(locations[2]);
 }
 
-function fightDragon () {
-    console.log("Fighting dragon.");
-}
+
 
 function goFight () {
+  update (locations[3]);
+  monsterHealth = monsters[fighting].health; //Using dot notation at this section
+  monsterStats.style.display = 'block'; //Using inline styling in JS 
+}
 
+fightDragon(){
+  console.log (monsterHealth)
 }
 
 //created 3 empty functions 
@@ -151,11 +162,18 @@ currentWeapon = inventory.shift();
 }
 
 function fightSlime(){  // These 2 functions will be used in my cave object
-
+  fighting = 0;
+  goFight();
 }
 
 function fightBeast(){
+  fighting = 1;
+  goFight();
+}
 
+function fightDragon () {
+    fighting = 2;
+    goFight();
 }
 //initialize buttons
 button1.onclick = goStore;
@@ -173,4 +191,12 @@ function update (location){
     button3.innerText = location["button text"][2]; //updated button element
     button3.onclick = location["button functions"][2];//updated onclick property
       text.innerText = location.text;  // modified the display text by using dot notation
+}
+
+function attack(){
+
+}
+
+function dodge(){
+
 }
