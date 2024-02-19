@@ -101,10 +101,8 @@ function goFight () {
   update (locations[3]);
   monsterHealth = monsters[fighting].health; //Using dot notation at this section
   monsterStats.style.display = 'block'; //Using inline styling in JS 
-}
-
-fightDragon(){
-  console.log (monsterHealth)
+  monsterName.innerText = monsters[fighting].name;
+  monsterHealthText.innerText = monsterHealth;
 }
 
 //created 3 empty functions 
@@ -194,7 +192,7 @@ function update (location){
 }
 
 function attack(){
-
+  text.innerText = "The " +monsters[fighting].name+ " attacks";
 }
 
 function dodge(){
