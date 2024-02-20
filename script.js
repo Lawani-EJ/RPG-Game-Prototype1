@@ -76,7 +76,14 @@ const locations = [
   "button text": ["Attack", "Dodge", "Run"],
   "button functions": [attack, dodge, goTown],
   "text": "You are fighting a monster."
-}
+},
+
+  {
+    name: "kill monster",
+    "button text": ["Go to town square","Go to town square","Go to town square"],
+    "button functions": [goTown,goTown,goTown],
+    text: 'The monster screams "Arg!" as it dies. You gain experience points and find gold.'
+  }
 ]; //Declared empty variable and added an empty object 
 
 //moved the function above the go store function and added the content from the goStore Function
@@ -181,6 +188,7 @@ button3.onclick = fightDragon;
 //created another empty function
 //Copied function of the goTown function
 function update (location){
+    monsterStats.style.display = "none";
      const button1 = document.querySelector("#button1");
     button1.innerText = location["button text"][0];  //updated button element
     button1.onclick = location["button functions"][0]; //updated onclick property
@@ -193,8 +201,32 @@ function update (location){
 
 function attack(){
   text.innerText = "The " +monsters[fighting].name+ " attacks";
+    text.innerText = "You attack it with your " +  weapons[currentWeapon].name + ".";
+    health -= monsters[fighting].level;
+    monsterHealth -= weapons[currentWeapon].power + Math.floor(Math.random() * xp) + 1;
+    healthText.innerText = health;
+    monsterHealthText.innerText = monsterHealth;
+
+    if (health <= 0) {
+      lose();
+    } else if (monsterHealth <= 0) {
+      defeatMonster();
+    }
 }
 
 function dodge(){
+  text.innerText = "You dodge attack from the " + monsters[fighting].name;
+}
+
+function defeatMonster(){
+  gold += Math.floor(monsters[fighting].level * 6.7);
+  xp += monsters[fighting].level;
+  goldText.innerText = gold;
+  xpText.innerText = xp;
+
+  update(locations[4]);
+}
+
+function lose(){
 
 }
