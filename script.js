@@ -90,6 +90,13 @@ const locations = [
     "button text": ["REPLAY?","REPLAY?","REPLAY?"],
     "button functions": [restart, restart, restart],
     text: "You die. &#x2620;"
+  },
+
+  {
+    name: "win",
+        "button text": ["REPLAY?","REPLAY?","REPLAY?"],
+    "button functions": [restart, restart, restart],
+    text: "You defeat the dragon! YOU WIN THE GAME! &#x1F389;"
   }
 ]; //Declared empty variable and added an empty object 
 
@@ -203,7 +210,7 @@ function update (location){
     button2.onclick =location["button functions"][1];//updated onclick property
     button3.innerText = location["button text"][2]; //updated button element
     button3.onclick = location["button functions"][2];//updated onclick property
-      text.innerText = location.text;  // modified the display text by using dot notation
+      text.innerHTML = location.text;  // modified the display text by using dot notation
 }
 
 function attack(){
@@ -217,7 +224,12 @@ function attack(){
     if (health <= 0) {
       lose();
     } else if (monsterHealth <= 0) {
-      defeatMonster();
+            defeatMonster();
+      if (fighting === 2) {
+        winGame();
+      } else {
+        defeatMonster ();
+      }
     }
 }
 
@@ -236,6 +248,10 @@ function defeatMonster(){
 
 function lose(){
   update(locations[5]);
+}
+
+function winGame(){
+  update(locations[6]);
 }
 
 function restart (){
