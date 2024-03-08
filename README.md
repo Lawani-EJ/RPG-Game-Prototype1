@@ -14,7 +14,7 @@ Manage your health, experience, and gold to strategize your next move.
 To play the game, simply clone this repository to your local machine and open the ` index.html ` file in your preferred web browser.
 
 ``` bash
-git clone <https://github.com/yourusername/dragon-repeller.git>
+git clone <https://github.com/Lawani-EJ/RPG-Game-Prototype1.git>
 cd dragon-repeller
 open index.html
 ```
