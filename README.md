@@ -33,6 +33,18 @@ HTML - For structuring the game content.
 CSS - For styling the game interface.
 JavaScript - For game logic and interactivity.
 
+# 📸 Screenshots and Screen Recording
+
+## Screenshots
+
+![image](./Assets/Screenshot%20(1).png)
+Caption: A thrilling moment in the Dragon Repeller game.
+
+## Screen Recording
+
+![video](./Assets/screenrecord1.gif)
+Click the image above to watch a short gameplay video.
+
 ## 📚 Learning Journey
 
 This project was built as a learning exercise in web development, inspired by the comprehensive tutorials available at FreeCodeCamp. It served as a practical application of HTML, CSS, and JavaScript fundamentals.
